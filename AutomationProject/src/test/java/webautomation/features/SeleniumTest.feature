@@ -5,9 +5,11 @@ Feature: Open Browser
   Scenario Outline: Open Browser
     Given I launch the browser
     And I navigate to "<url>"
-    Then I should see the page title contains "<title>"
+    And I login using my credentials "username", "password"
+    And I view and add item to the cart
+    Then I proceed to check out
 
     @test1
     Examples: 
-      | url        | title|
-      | google.com |Google|
+      | url                             | username         | password     | typeOfCard |
+      | https://automationexercise.com/ | piping@gmail.com | secret_sauce | visa       |
