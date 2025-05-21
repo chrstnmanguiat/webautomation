@@ -1,6 +1,7 @@
 package webautomation.steps;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions; 
@@ -53,6 +54,14 @@ public class SeleniumHelper {
     public void fillField(String xpath, String value) {
         WebElement field = driver.findElement(By.xpath(xpath));
         field.sendKeys(value);
+    }
+    
+    // Fill a form field and press enter
+    public void fillFieldWithEnter(String xpath, String value) {
+        WebElement field = driver.findElement(By.xpath(xpath));
+        field.sendKeys(value);
+        wait(1);
+        field.sendKeys(Keys.ENTER);
     }
 
     // Get text from an element
